@@ -42,7 +42,7 @@ socket.on('command',function (cmd) {
 });
 
 
-console.log ( 'while loop' );
+console.log ( 'Standby' );
 
 
 //cmd1(); // one second beep
@@ -65,16 +65,16 @@ function cmd1() {
 	boardLED.write(1);
 	setTimeout( cmd1_off2,1000);
 }
-function cmd1_off1() {
-	buzzer.write(0);
-	boardLED.write(0);
-	setTimeout( cmd1_on2,500);
-}
-function cmd1_on2() {
-	buzzer.write(1);
-	boardLED.write(1);
-	setTimeout( cmd1_off2,500);
-}
+//function cmd1_off1() {
+//	buzzer.write(0);
+//	boardLED.write(0);
+//	setTimeout( cmd1_on2,500);
+//}
+//function cmd1_on2() {
+//	buzzer.write(1);
+//	boardLED.write(1);
+//	setTimeout( cmd1_off2,500);
+//}
 function cmd1_off2() {
 	buzzer.write(0);
 	boardLED.write(0);

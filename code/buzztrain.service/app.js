@@ -30,6 +30,11 @@ app.get('/api/stay', function (req, res) {
 	res.end();
 });
 
+app.get('/api/lights', function (req, res) {
+    io.emit('command', { type: 'lights'});	
+	res.end();
+});
+
 io.on('connection', function (socket) {
     console.log('connection from a collar ' + socket.id);
 });
