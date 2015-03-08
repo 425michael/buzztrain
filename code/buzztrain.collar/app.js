@@ -12,16 +12,24 @@ pin13.write(0);
 var buzzer = new mraa.Gpio(3);
 buzzer.dir(mraa.DIR_OUT);
 
+console.log ( 'Setup Complete' );
+
 // Main code ===================================
+socket.on('connection', function() { console.log ( 'Socket Connected' ); });
+
 socket.on('command',function (cmd) {
-	switch (cmd) {
+	console.log ( 'Command Received' + cmd.type );
+	switch (cmd.type) {
 		case 'sit':
+			console.log ( 'Sit' );
 			cmd1();
 			break;
 		case 'laydown':
+			console.log ( 'Laydown' );
 			cmd2();
 			break;
 		case 'stay':
+			console.log ( 'Stay' );
 			cmd3();
 			break;
 	}
@@ -53,6 +61,7 @@ function cmd1_on2() {
 function cmd1_off2() {
 	buzzer.write(0);
 	pin13.write(0);
+	console.log ( 'Command 1 Finished' );
 }
 
 // Command 2 ===================================
@@ -75,6 +84,7 @@ function cmd2_on2() {
 function cmd2_off2() {
 	buzzer.write(0);
 	pin13.write(0);
+	console.log ( 'Command 2 Finished' );
 }
 
 // Command 3 ===================================
@@ -107,4 +117,5 @@ function cmd3_on3() {
 function cmd3_off3() {
 	buzzer.write(0);
 	pin13.write(0);
+	console.log ( 'Command 3 Finished' );
 }
